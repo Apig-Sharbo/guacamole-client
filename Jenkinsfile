@@ -34,7 +34,7 @@ pipeline {
 
             steps {
                 withMaven(jdk: 'java-8', maven: 'maven-3.6.3') {
-                    sh 'mvn package'
+                    sh 'mvn -U package'
                 }
             }
         }
