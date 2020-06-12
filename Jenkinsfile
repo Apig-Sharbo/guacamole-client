@@ -57,6 +57,11 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
+               slackSend channel: 'build-jenkins',
+                color: 'good',
+                message: "Starting to Build",
+                tokenCredentialId: '74ccf0ef-9dc6-4a55-93c9-640cd2e28803'
+               
                 withMaven(jdk: 'java-8', maven: 'maven-3.6.3') {
                     sh 'mvn package'
                 }
